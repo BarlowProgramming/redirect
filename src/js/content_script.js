@@ -36,7 +36,14 @@
       // I don't want any class name conlicts with other websites
       let popup = `
         <div id="ext-redirect">
-          <button id="ext-redirect-backToWork" @click="backToWork" type="button">Back to Work</button>
+          <button id="ext-redirect-backToWork" @click="previousPage" type="button">
+            <i class="fa fa-arrow-left"></i>
+            I was working
+          </button>
+          <button id="ext-redirect-backToWork" @click="backToWork" type="button">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            Back to Work
+          </button>
           <div id="ext-redirect-right">
             <div id="ext-redirect-takeBreakContainer">
               <button class="ext-redirect-takeBreak" @click="takeBreak(5)" type="button">5min. break</button>
@@ -50,8 +57,11 @@
       // this will run when the document loads
       $(window).load(() => {
         if ($('#ext-redirect').length > 0) return
-        $('body').before(popup)
-        $('body').css('position', 'relative');
+        // $('body').before(popup)
+        // $('body').css('position', 'relative');
+        $('body').wrapInner('<div id="body-wrap"><div>')
+        $('#body-wrap').before(popup) // .css('position', 'relative');
+
         this.createVue()
       });
     }

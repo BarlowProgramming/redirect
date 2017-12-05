@@ -5,7 +5,7 @@
 	"description": "Helps you focus on homework by redirecting you from distracting websites",
 	"content_scripts": [{
 		"matches": ["*://*/*"],
-		"css": ["css/grd.css", "css/style.css"],
+		"css": ["css/grd.css", "css/style.css", "lib/font-awesome.min.css"],
 		"js": ["lib/jquery.min.js", "lib/vue.js", "js/content_script.js"],
 		"run_at": "document_start"
 	}],
